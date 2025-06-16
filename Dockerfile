@@ -18,9 +18,7 @@ WORKDIR /app
 COPY Gemfile* ./
 
 # Install bundler and private gem access
-RUN gem install bundler -v "${BUNDLER_VERSION}" \
-  && bundle config https://gem.fury.io/engineerai/ nvHuX-OXxLY2OpiQkFVfgnYgd4CszdA \
-  && bundle install
+RUN gem install bundler -v "${BUNDLER_VERSION}" && bundle install
 
 # Copy the full app code
 COPY . .
