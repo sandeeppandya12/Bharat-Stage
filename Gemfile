@@ -88,7 +88,6 @@ end
 group :test do
   gem 'mock_redis', '0.34.0'
   gem 'faker'
-  gem 'simplecov', require: false
 end
 
 gem 'sidekiq_alive'
