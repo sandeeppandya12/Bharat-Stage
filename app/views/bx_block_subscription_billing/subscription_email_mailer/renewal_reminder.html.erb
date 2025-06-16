@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <title>Subscription Renewal Reminder</title>
+  </head>
+  <body>
+    <p>Hi <%= @account.first_name %>,</p>
+
+    <p>Your subscription is set to renew on <%= @renewal_date %>. Please ensure your payment information is up to date to avoid any interruption in service.</p>
+
+    <p>Best regards,<br/>
+    The BharatStage Team</p>
+  </body>
+</html>

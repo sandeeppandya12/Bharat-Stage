@@ -1,0 +1,2 @@
+shared:
+  analytics_event_handler: 'BxBlockBuilderAnalytics::HandleAnalyticsEvent'

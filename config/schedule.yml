@@ -1,0 +1,4 @@
+daily_job:
+  cron: "*/1 * * * * *"
+  class: "BxBlockSubscriptionBilling::SubscriptionReminderJob"
+  queue: default 

@@ -1,0 +1,236 @@
+[
+  {
+    "id": 6,
+    "feature": {
+      "id": 6,
+      "name": "code_engine_min_log_level"
+    },
+    "enabled": true,
+    "feature_state_value": "INFO"
+  },
+  {
+    "id": 7,
+    "feature": {
+      "id": 7,
+      "name": "feature_slicer_enabled"
+    },
+    "enabled": false,
+    "feature_state_value": null
+  },
+  {
+    "id": 8,
+    "feature": {
+      "id": 8,
+      "name": "skip_ci"
+    },
+    "enabled": false,
+    "feature_state_value": "TO BE REMOVED"
+  },
+  {
+    "id": 9,
+    "feature": {
+      "id": 9,
+      "name": "v2_blocks_activated"
+    },
+    "enabled": false,
+    "feature_state_value": "184465,195404"
+  },
+  {
+    "id": 15,
+    "feature": {
+      "id": 14,
+      "name": "feature_slicer_shallow_clone"
+    },
+    "enabled": true,
+    "feature_state_value": null
+  },
+  {
+    "id": 19,
+    "feature": {
+      "id": 18,
+      "name": "cde_commit_tag_incremental"
+    },
+    "enabled": true,
+    "feature_state_value": "[skip_ci]"
+  },
+  {
+    "id": 20,
+    "feature": {
+      "id": 19,
+      "name": "cde_commit_tag_initial"
+    },
+    "enabled": true,
+    "feature_state_value": "[skip ci]"
+  },
+  {
+    "id": 48,
+    "feature": {
+      "id": 46,
+      "name": "automated_user_names"
+    },
+    "enabled": true,
+    "feature_state_value": "assembler-stg,assembler-prd,ui-engine-prd,ui-engine-stg"
+  },
+  {
+    "id": 57,
+    "feature": {
+      "id": 55,
+      "name": "cde_log_api_calls"
+    },
+    "enabled": false,
+    "feature_state_value": null
+  },
+  {
+    "id": 59,
+    "feature": {
+      "id": 57,
+      "name": "pro_boilerplate_tag"
+    },
+    "enabled": true,
+    "feature_state_value": "v7.0.1"
+  },
+  {
+    "id": 60,
+    "feature": {
+      "id": 58,
+      "name": "pro_core_block_tag"
+    },
+    "enabled": true,
+    "feature_state_value": "v7.0.0"
+  },
+  {
+    "id": 61,
+    "feature": {
+      "id": 59,
+      "name": "bx_client_toolbelt_version"
+    },
+    "enabled": false,
+    "feature_state_value": "1.1.0"
+  },
+  {
+    "id": 65,
+    "feature": {
+      "id": 63,
+      "name": "base_template_tag_version"
+    },
+    "enabled": true,
+    "feature_state_value": "0.8.99"
+  },
+  {
+    "id": 70,
+    "feature": {
+      "id": 68,
+      "name": "frontend_blocks_by_tag"
+    },
+    "enabled": false,
+    "feature_state_value": null
+  },
+  {
+    "id": 71,
+    "feature": {
+      "id": 69,
+      "name": "cde_navigation_upgrade_activated"
+    },
+    "enabled": false,
+    "feature_state_value": null
+  },
+  {
+    "id": 75,
+    "feature": {
+      "id": 73,
+      "name": "skip_approved_branch_creation"
+    },
+    "enabled": false,
+    "feature_state_value": null
+  },
+  {
+    "id": 78,
+    "feature": {
+      "id": 76,
+      "name": "ruby_version"
+    },
+    "enabled": true,
+    "feature_state_value": "2.7.5"
+  },
+  {
+    "id": 79,
+    "feature": {
+      "id": 77,
+      "name": "dockerfile_from_repository"
+    },
+    "enabled": false,
+    "feature_state_value": "Dockerfile will be fetched from GitLab Template App repository, manually constructed otherwise."
+  },
+  {
+    "id": 80,
+    "feature": {
+      "id": 78,
+      "name": "add_skip_to_rspec_install"
+    },
+    "enabled": false,
+    "feature_state_value": null
+  },
+  {
+    "id": 82,
+    "feature": {
+      "id": 80,
+      "name": "sub_build_runner_drain_mode"
+    },
+    "enabled": false,
+    "feature_state_value": null
+  },
+  {
+    "id": 83,
+    "feature": {
+      "id": 81,
+      "name": "skip_helper_files_edit"
+    },
+    "enabled": false,
+    "feature_state_value": null
+  },
+  {
+    "id": 85,
+    "feature": {
+      "id": 83,
+      "name": "builder_base_version"
+    },
+    "enabled": true,
+    "feature_state_value": "1.6.0"
+  },
+  {
+    "id": 86,
+    "feature": {
+      "id": 84,
+      "name": "ruby_docker_image_version"
+    },
+    "enabled": true,
+    "feature_state_value": "2.7.5-alpine3.13"
+  },
+  {
+    "id": 87,
+    "feature": {
+      "id": 85,
+      "name": "rails_version"
+    },
+    "enabled": true,
+    "feature_state_value": "6.1.7"
+  },
+  {
+    "id": 88,
+    "feature": {
+      "id": 86,
+      "name": "skip_routes_file_edit"
+    },
+    "enabled": false,
+    "feature_state_value": null
+  },
+  {
+    "id": 89,
+    "feature": {
+      "id": 87,
+      "name": "skip_remove_current_rails_version"
+    },
+    "enabled": true,
+    "feature_state_value": null
+  }
+]
