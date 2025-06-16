@@ -30,10 +30,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 source 'https://gem.fury.io/engineerai/' do
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-  gem 'bx_block_sorting-a08a7b91', '1.0.1', require: 'bx_block_sorting'
   gem 'bx_block_catalogue-0e5da613', '1.3.0', require: 'bx_block_catalogue'
   gem 'bx_block_categories-acd0763f', '1.3.0', require: 'bx_block_categories'
   gem 'bx_block_login-3d0582b5', '1.1.1', require: 'bx_block_login'
+  gem 'bx_block_sorting-a08a7b91', '1.0.1', require: 'bx_block_sorting'
   gem 'account_block', '1.3.0', require: 'account_block'
   gem 'bx_block_sms', '1.1.1', require: 'bx_block_sms'
   gem 'bx_block_coupon_cg-1da92412', '0.0.1', require: 'bx_block_coupon_cg'
