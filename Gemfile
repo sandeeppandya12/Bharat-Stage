@@ -29,7 +29,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'bx_block_sorting-a08a7b91', '1.1.1', require: 'bx_block_sorting'
+gem 'bx_block_sorting-a08a7b91', '1.0.0', require: 'bx_block_sorting'
 gem 'bx_block_catalogue-0e5da613', '1.3.0', require: 'bx_block_catalogue'
 gem 'bx_block_categories-acd0763f', '1.3.0', require: 'bx_block_categories'
 gem 'bx_block_login-3d0582b5', '1.1.1', require: 'bx_block_login'
@@ -88,6 +88,7 @@ end
 group :test do
   gem 'mock_redis', '0.34.0'
   gem 'faker'
+  gem 'simplecov', require: false
 end
 
 gem 'sidekiq_alive'
