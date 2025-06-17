@@ -28,8 +28,8 @@ group :development, :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-source 'https://gem.fury.io/engineerai/' do
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+source 'https://gem.fury.io/engineerai/' do
   gem 'bx_block_catalogue-0e5da613', '1.3.0', require: 'bx_block_catalogue'
   gem 'bx_block_categories-acd0763f', '1.3.0', require: 'bx_block_categories'
   gem 'bx_block_login-3d0582b5', '1.1.1', require: 'bx_block_login'
