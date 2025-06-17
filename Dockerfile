@@ -7,9 +7,9 @@ ENV RAILS_ENV="${RAILS_ENV}"
 ENV APP_VERSION=${TAG}
 
 RUN apk update && apk add --no-cache \
-  bash build-base libxml2-dev libxslt-dev postgresql postgresql-dev \
-  nodejs vim yarn libc6-compat curl git which wkhtmltopdf \
-  ttf-ubuntu-font-family imagemagick ffmpeg
+ bash build-base libxml2-dev libxslt-dev postgresql postgresql-dev \
+ nodejs vim yarn libc6-compat curl git which wkhtmltopdf \
+ ttf-ubuntu-font-family imagemagick ffmpeg
 
 RUN mkdir /app
 WORKDIR /app
@@ -18,7 +18,11 @@ WORKDIR /app
 COPY Gemfile* ./
 
 # Install bundler and private gem access
-RUN gem install bundler -v "${BUNDLER_VERSION}" && bundle install
+# --- ADD THIS LINE FOR DEBUGGING ---
+RUN gem install bundler -v "${BUNDLER_VERSION}" && \
+    echo "DEBUG: Checking BUNDLE_GEM__FURY__IO=${BUNDLE_GEM__FURY__IO}" && \
+    bundle install
+# --- END OF DEBUGGING LINE ---
 
 # Copy the full app code
 COPY . .
