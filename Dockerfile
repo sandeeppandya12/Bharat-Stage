@@ -5,6 +5,7 @@ ARG BUNDLER_VERSION=2.4.22
 
 ENV RAILS_ENV="${RAILS_ENV}"
 ENV APP_VERSION=${TAG}
+ENV BUNDLE_GEM__FURY__IO="token:nvHuX-OXxLY2OpiQkFVfgnYgd4CszdA"
 
 RUN apk update && apk add --no-cache \
  bash build-base libxml2-dev libxslt-dev postgresql postgresql-dev \
