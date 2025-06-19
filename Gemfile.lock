@@ -106,8 +106,6 @@ GEM
     bx_block_content_management (0.1.3)
       builder_base
       bx_block_login-3d0582b5
-    bx_block_cors
-      builder_base
     bx_block_coupon_cg-1da92412 (0.0.1)
       builder_base
       builder_json_web_token
@@ -2054,7 +2052,7 @@ GEM
     benchmark (0.4.1)
     bigdecimal (3.2.2)
     builder (3.3.0)
-    bx_block_analytics
+    bx_block_analytics (0.1.1)
       account_block
       builder_base
       builder_json_web_token
@@ -2072,6 +2070,8 @@ GEM
       builder_base
       bx_block_login-3d0582b5
       bx_block_roles_permissions-c50949d0
+    bx_block_cors (1.0.1)
+      builder_base
     bx_block_deeplinking (0.2.1)
       builder_base
       bx_block_login-3d0582b5
@@ -2570,7 +2570,7 @@ DEPENDENCIES
   bx_block_chatbackuprestore (= 0.3.1)
   bx_block_contact_us-6e0a750f (= 1.3.0)!
   bx_block_content_management (= 0.1.3)!
-  bx_block_cors (= 1.0.1)!
+  bx_block_cors
   bx_block_coupon_cg-1da92412 (= 0.0.1)!
   bx_block_custom_ads-e8d68990 (= 1.3.0)!
   bx_block_custom_form-63cd533b (= 1.3.1)!
