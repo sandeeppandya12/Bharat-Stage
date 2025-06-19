@@ -20,9 +20,8 @@ COPY Gemfile* ./
 
 # Install bundler and private gem access
 # --- ADD THIS LINE FOR DEBUGGING ---
-RUN gem install bundler -v "${BUNDLER_VERSION}" && \
-    echo "DEBUG: Checking BUNDLE_GEM__FURY__IO=${BUNDLE_GEM__FURY__IO}" && \
-    bundle install
+RUN gem install bundler -v "${BUNDLER_VERSION}" && bundle config https://gem.fury.io/engineerai/ nvHuX-OXxLY2OpiQkFVfgnYgd4CszdA
+RUN bundle install
 # --- END OF DEBUGGING LINE ---
 
 # Copy the full app code

@@ -2054,7 +2054,7 @@ GEM
     benchmark (0.4.1)
     bigdecimal (3.2.2)
     builder (3.3.0)
-    bx_block_analytics (0.1.1)
+    bx_block_analytics
       account_block
       builder_base
       builder_json_web_token
