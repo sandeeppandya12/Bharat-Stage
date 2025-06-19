@@ -40,4 +40,4 @@ RUN bundle config https://gem.fury.io/engineerai/ "$BUNDLE_GEMS__ENGINEERAI__IO"
 CMD bundle exec rails db:migrate && \
     bundle exec rails db:seed && \
     bundle exec rake assets:precompile && \
-    bundle exec puma -C config/puma.rb
+    bundle exec puma -C config/puma.rb -b tcp://0.0.0.0:${PORT}
