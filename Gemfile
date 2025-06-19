@@ -79,6 +79,8 @@ source 'https://gem.fury.io/engineerai/' do
   gem 'bx_block_documentstorage', '0.3.1', require: 'bx_block_documentstorage'
   gem 'builder_base', '1.4.0'
   gem 'bx_block_cors'
+  gem 'bx_block_analytics'
+  gem 'bx_block_builder_analytics'
 end  
 group :development, :test do
     gem 'rspec-sonarqube-formatter', '1.5.0'
@@ -105,8 +107,6 @@ gem 'yabeda-sidekiq'
 
 
 # Builder analytics
-gem 'bx_block_analytics'
-gem 'bx_block_builder_analytics'
 gem 'devise'
 gem 'sassc-rails'
 gem 'activeadmin'
