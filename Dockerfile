@@ -6,8 +6,8 @@ ARG BUNDLER_VERSION=2.4.22
 ENV RAILS_ENV=$RAILS_ENV
 ENV APP_VERSION=${TAG}
 
-# ✅ Add the private gem token early
-ENV BUNDLE_GEM__FURY__IO="nvHuX-OXxLY2OpiQkFVfgnYgd4CszdA"
+# ✅ Set correct ENV for Gemfury (engineerai)
+ENV BUNDLE_GEMS__ENGINEERAI__IO="nvHuX-OXxLY2OpiQkFVfgnYgd4CszdA"
 
 # Install system dependencies
 RUN apk update && apk add --no-cache \
@@ -15,28 +15,26 @@ RUN apk update && apk add --no-cache \
   nodejs vim yarn libc6-compat curl git which wkhtmltopdf \
   ttf-ubuntu-font-family imagemagick ffmpeg
 
-# Set app dir
+# Set working directory
 WORKDIR /app
 
-# Copy only Gemfiles first to cache bundle layer
+# Copy Gemfile and lockfile for layer caching
 COPY Gemfile Gemfile.lock ./
 
-# ✅ Configure bundler with token & install gems
+# ✅ Install bundler and configure access to private Gemfury gems
 RUN gem install bundler -v "${BUNDLER_VERSION}" && \
-    bundle config set --global BUNDLE_GEM__FURY__IO "$BUNDLE_GEM__FURY__IO" && \
+    bundle config https://gem.fury.io/engineerai/ "$BUNDLE_GEMS__ENGINEERAI__IO" && \
     bundle install --jobs 4 --retry 3
 
-# Copy rest of the app
+# Copy the rest of the app
 COPY . .
 
-# Expose port
+# Expose Rails port
 EXPOSE 3000
 
-# ✅ Ensure token is available at runtime too
-ENV BUNDLE_GEM__FURY__IO="nvHuX-OXxLY2OpiQkFVfgnYgd4CszdA"
+# ✅ Reconfigure bundler at runtime for safety
+ENV BUNDLE_GEMS__ENGINEERAI__IO="nvHuX-OXxLY2OpiQkFVfgnYgd4CszdA"
+RUN bundle config https://gem.fury.io/engineerai/ "$BUNDLE_GEMS__ENGINEERAI__IO"
 
-# ✅ Explicitly reconfigure bundler in runtime
-RUN bundle config set --global BUNDLE_GEM__FURY__IO "$BUNDLE_GEM__FURY__IO"
-
-# Start app
+# Start Rails server
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
