@@ -78,6 +78,7 @@ source 'https://gem.fury.io/engineerai/' do
   gem 'bx_block_data_import_export-ec567cbb', '1.1.1', require: 'bx_block_data_import_export'
   gem 'bx_block_documentstorage', '0.3.1', require: 'bx_block_documentstorage'
   gem 'builder_base', '1.4.0'
+  gem 'bx_block_cors', '1.0.1'
 end  
 group :development, :test do
     gem 'rspec-sonarqube-formatter', '1.5.0'
@@ -102,7 +103,6 @@ gem "yabeda-http_requests" #External request monitoring
 gem "yabeda-puma-plugin"
 gem 'yabeda-sidekiq'
 
-gem 'bx_block_cors'
 
 # Builder analytics
 gem 'bx_block_analytics'
