@@ -29,10 +29,6 @@ RUN gem install bundler -v "${BUNDLER_VERSION}" && \
 # Copy the rest of the app
 COPY . .
 
-
-RUN RAILS_ENV=production bundle exec rake assets:precompile
-RUN RAILS_ENV=production bundle exec rake db:migrate
-
 # Expose Rails port
 EXPOSE 3000
 
@@ -41,4 +37,7 @@ ENV BUNDLE_GEMS__ENGINEERAI__IO="nvHuX-OXxLY2OpiQkFVfgnYgd4CszdA"
 RUN bundle config https://gem.fury.io/engineerai/ "$BUNDLE_GEMS__ENGINEERAI__IO"
 
 # Start Rails server
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+CMD bundle exec rails db:migrate && \
+    bundle exec rails db:seed && \
+    bundle exec rake assets:precompile && \
+    bundle exec puma -C config/puma.rb
