@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: Bharat-Stage
+    env: ruby
+    buildCommand: |
+      bundle install
+      bundle exec rake assets:precompile
+    startCommand: |
+      bundle exec rails db:migrate &&
+      bundle exec rails db:seed &&
+      bundle exec puma -C config/puma.rb
+    envVars:
+      - key: RAILS_ENV
+        value: production
