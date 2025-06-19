@@ -42,6 +42,11 @@ GEM
       builder_json_web_token
       bx_block_custom_form-63cd533b
       bx_block_login-3d0582b5
+    bx_block_analytics (0.1.1)
+      account_block
+      builder_base
+      builder_json_web_token
+      rswag
     bx_block_appointment_management-eb816fd3 (1.3.0)
       account_block
       builder_base
@@ -57,6 +62,14 @@ GEM
       builder_base
       bx_block_emergency
       bx_block_login-3d0582b5
+    bx_block_block_users-eefa7b2b (1.3.0)
+      account_block
+      builder_base
+      builder_json_web_token
+      bx_block_login-3d0582b5
+    bx_block_builder_analytics (0.2.4)
+      builder_base
+      bx_block_analytics
     bx_block_bulk_uploading (1.3.0)
       account_block
       active_storage_validations
@@ -91,6 +104,11 @@ GEM
       builder_base
       bx_block_push_notifications-c0f9e9b7
       public_activity
+    bx_block_chatbackuprestore (0.3.1)
+      account_block
+      builder_base
+      bx_block_login-3d0582b5
+      bx_block_roles_permissions-c50949d0
     bx_block_comments-568532a5 (3.0.0)
       builder_base
       bx_block_login-3d0582b5
@@ -106,6 +124,8 @@ GEM
     bx_block_content_management (0.1.3)
       builder_base
       bx_block_login-3d0582b5
+    bx_block_cors (1.0.1)
+      builder_base
     bx_block_coupon_cg-1da92412 (0.0.1)
       builder_base
       builder_json_web_token
@@ -134,6 +154,9 @@ GEM
       builder_base
       bx_block_login-3d0582b5
     bx_block_data_import_export-ec567cbb (1.1.1)
+      builder_base
+      bx_block_login-3d0582b5
+    bx_block_deeplinking (0.2.1)
       builder_base
       bx_block_login-3d0582b5
     bx_block_documentstorage (0.3.1)
@@ -248,12 +271,20 @@ GEM
       bx_block_push_notifications-c0f9e9b7
       bx_block_request_management
       rswag
+    bx_block_profile_lite (0.3.1)
+      builder_base
+      bx_block_login-3d0582b5
     bx_block_push_notifications-c0f9e9b7 (1.3.0)
       account_block
       builder_base
       bx_block_categories-acd0763f
       bx_block_login-3d0582b5
       fcmpush
+    bx_block_razorpay (0.4.1)
+      builder_base
+      bx_block_login-3d0582b5
+      bx_block_shopping_cart-9ec30a1c
+      razorpay
     bx_block_request_management (1.3.0)
       account_block
       builder_base
@@ -268,6 +299,11 @@ GEM
       rswag
     bx_block_settings-5412d427 (1.2.2)
       builder_base
+    bx_block_shopping_cart-9ec30a1c (1.3.0)
+      builder_base
+      bx_block_address-07f1bf4f
+      bx_block_catalogue-0e5da613
+      multi_json (~> 1.11, >= 1.11.2)
     bx_block_sms (1.1.1)
       builder_base
       twilio-ruby
@@ -308,6 +344,13 @@ GEM
       bx_block_custom_ads-e8d68990
       bx_block_custom_form-63cd533b
       bx_block_login-3d0582b5
+    bx_block_video_call (1.2.0)
+      account_block
+      builder_base
+      builder_json_web_token
+      bx_block_account_groups
+      bx_block_login-3d0582b5
+      rswag
 
 GEM
   remote: https://rubygems.org/
@@ -2052,49 +2095,6 @@ GEM
     benchmark (0.4.1)
     bigdecimal (3.2.2)
     builder (3.3.0)
-    bx_block_analytics (0.1.1)
-      account_block
-      builder_base
-      builder_json_web_token
-      rswag
-    bx_block_block_users-eefa7b2b (1.3.0)
-      account_block
-      builder_base
-      builder_json_web_token
-      bx_block_login-3d0582b5
-    bx_block_builder_analytics (0.2.0)
-      builder_base
-      bx_block_analytics (~> 0.1.0.beta.0)
-    bx_block_chatbackuprestore (0.3.1)
-      account_block
-      builder_base
-      bx_block_login-3d0582b5
-      bx_block_roles_permissions-c50949d0
-    bx_block_cors (1.0.1)
-      builder_base
-    bx_block_deeplinking (0.2.1)
-      builder_base
-      bx_block_login-3d0582b5
-    bx_block_profile_lite (0.3.1)
-      builder_base
-      bx_block_login-3d0582b5
-    bx_block_razorpay (0.4.1)
-      builder_base
-      bx_block_login-3d0582b5
-      bx_block_shopping_cart-9ec30a1c
-      razorpay
-    bx_block_shopping_cart-9ec30a1c (1.3.0)
-      builder_base
-      bx_block_address-07f1bf4f
-      bx_block_catalogue-0e5da613
-      multi_json (~> 1.11, >= 1.11.2)
-    bx_block_video_call (1.2.0)
-      account_block
-      builder_base
-      builder_json_web_token
-      bx_block_account_groups
-      bx_block_login-3d0582b5
-      rswag
     byebug (11.1.3)
     cancancan (3.6.1)
     capybara (3.39.2)
@@ -2558,19 +2558,19 @@ DEPENDENCIES
   bx_block_address-07f1bf4f (= 1.3.0)!
   bx_block_admin (= 1.3.1)!
   bx_block_advanced_search-23b25188 (= 1.1.1)!
-  bx_block_analytics
+  bx_block_analytics (= 0.1.1)!
   bx_block_appointment_management-eb816fd3 (= 1.3.0)!
   bx_block_baselinereporting (= 0.3.0)!
-  bx_block_block_users-eefa7b2b (= 1.3.0)
-  bx_block_builder_analytics
+  bx_block_block_users-eefa7b2b (= 1.3.0)!
+  bx_block_builder_analytics!
   bx_block_bulk_uploading (= 1.3.0)!
   bx_block_catalogue-0e5da613 (= 1.3.0)!
   bx_block_categories-acd0763f (= 1.3.0)!
   bx_block_chat (= 1.3.0)!
-  bx_block_chatbackuprestore (= 0.3.1)
+  bx_block_chatbackuprestore (= 0.3.1)!
   bx_block_contact_us-6e0a750f (= 1.3.0)!
   bx_block_content_management (= 0.1.3)!
-  bx_block_cors
+  bx_block_cors!
   bx_block_coupon_cg-1da92412 (= 0.0.1)!
   bx_block_custom_ads-e8d68990 (= 1.3.0)!
   bx_block_custom_form-63cd533b (= 1.3.1)!
@@ -2578,7 +2578,7 @@ DEPENDENCIES
   bx_block_custom_user_subs (= 0.0.9)!
   bx_block_dashboard_lite (= 0.2.1)!
   bx_block_data_import_export-ec567cbb (= 1.1.1)!
-  bx_block_deeplinking (= 0.2.1)
+  bx_block_deeplinking (= 0.2.1)!
   bx_block_documentstorage (= 0.3.1)!
   bx_block_email_notifications (= 1.3.0)!
   bx_block_emergency (= 0.3.1)!
@@ -2595,9 +2595,9 @@ DEPENDENCIES
   bx_block_productdescription (= 0.4.1)!
   bx_block_profile (= 1.3.0)!
   bx_block_profile_bio (= 1.3.0)!
-  bx_block_profile_lite (= 0.3.1)
+  bx_block_profile_lite (= 0.3.1)!
   bx_block_push_notifications-c0f9e9b7 (= 1.3.0)!
-  bx_block_razorpay (= 0.4.1)
+  bx_block_razorpay (= 0.4.1)!
   bx_block_request_management (= 1.3.0)!
   bx_block_roles_permissions-c50949d0 (= 1.3.0)!
   bx_block_settings-5412d427 (= 1.2.2)!
@@ -2608,7 +2608,7 @@ DEPENDENCIES
   bx_block_subscription_billing (= 1.2.0)!
   bx_block_terms_and_conditions (= 1.3.0)!
   bx_block_upload_media-9de56634 (= 1.3.0)!
-  bx_block_video_call (= 1.2.0)
+  bx_block_video_call (= 1.2.0)!
   byebug
   capybara
   capybara_active_admin

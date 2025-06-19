@@ -79,7 +79,7 @@ source 'https://gem.fury.io/engineerai/' do
   gem 'bx_block_documentstorage', '0.3.1', require: 'bx_block_documentstorage'
   gem 'builder_base', '1.4.0'
   gem 'bx_block_cors'
-  gem 'bx_block_analytics'
+  gem 'bx_block_analytics', '0.1.1', require: 'bx_block_analytics'
   gem 'bx_block_builder_analytics'
   gem 'bx_block_razorpay', '0.4.1', require: 'bx_block_razorpay'
   gem 'bx_block_video_call', '1.2.0'
