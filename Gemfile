@@ -78,7 +78,7 @@ source 'https://gem.fury.io/engineerai/' do
   gem 'bx_block_data_import_export-ec567cbb', '1.1.1', require: 'bx_block_data_import_export'
   gem 'bx_block_documentstorage', '0.3.1', require: 'bx_block_documentstorage'
   gem 'builder_base', '1.4.0'
-  gem 'bx_block_cors', '1.0.1'
+  gem 'bx_block_cors'
 end  
 group :development, :test do
     gem 'rspec-sonarqube-formatter', '1.5.0'
