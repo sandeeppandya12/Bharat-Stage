@@ -29,6 +29,10 @@ RUN gem install bundler -v "${BUNDLER_VERSION}" && \
 # Copy the rest of the app
 COPY . .
 
+
+RUN RAILS_ENV=production bundle exec rake assets:precompile
+RUN RAILS_ENV=production bundle exec rake db:migrate
+
 # Expose Rails port
 EXPOSE 3000
 
