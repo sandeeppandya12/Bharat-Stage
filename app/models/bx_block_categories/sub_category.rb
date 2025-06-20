@@ -2,6 +2,7 @@
 
 module BxBlockCategories
   class SubCategory < BxBlockCategories::ApplicationRecord
+    include RansackAllowlist
     self.table_name = :sub_categories
 
     # has_and_belongs_to_many :categories, class_name: "BxBlockCategories::Category"

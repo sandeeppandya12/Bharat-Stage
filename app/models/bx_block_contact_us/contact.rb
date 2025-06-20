@@ -1,5 +1,6 @@
 module BxBlockContactUs
   class Contact < BxBlockContactUs::ApplicationRecord
+    include RansackAllowlist
     self.table_name = :contacts 
     has_many_attached :contact_images
     validates :first_name, presence: true, length: { maximum: 30 }, format: { with: /\A[a-zA-Z]+\z/, message: "should contain only alphabets" }

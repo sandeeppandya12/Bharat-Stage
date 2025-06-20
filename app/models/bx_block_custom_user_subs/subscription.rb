@@ -1,5 +1,6 @@
 module BxBlockCustomUserSubs
   class Subscription < ApplicationRecord
+    include RansackAllowlist
     has_many :user_subscriptions,
              class_name: 'BxBlockCustomUserSubs::UserSubscription'
     has_many :accounts, through: :user_subscriptions, class_name: 'AccountBlock::Account'

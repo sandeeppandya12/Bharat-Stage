@@ -1,5 +1,6 @@
 module BxBlockContentManagement
   class Testimonial < BxBlockContentManagement::ApplicationRecord
+    include RansackAllowlist
     self.table_name = :testimonials
 
     validates :profile_image, presence: true

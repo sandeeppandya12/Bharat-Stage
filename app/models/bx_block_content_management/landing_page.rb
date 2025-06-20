@@ -1,5 +1,6 @@
 module BxBlockContentManagement
   class LandingPage < BxBlockContentManagement::ApplicationRecord
+     include RansackAllowlist
     self.table_name = :landing_pages
 
     validates :title, :description, presence: true
@@ -9,6 +10,15 @@ module BxBlockContentManagement
     validate :validate_image_format
     validate :validate_maximum_records, on: :create
     validate :validate_image_size
+
+     def self.ransackable_associations(auth_object = nil)
+    ["image_attachment", "image_blob"]
+  end
+
+ def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "description", "id", "title", "updated_at"]
+  end
+
     
     private
   
