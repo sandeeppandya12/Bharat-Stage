@@ -1,5 +1,6 @@
 module BxBlockLanguage
 	class UserLanguage < ApplicationRecord
+		include RansackAllowlist
 	  self.table_name = :user_languages
   
 	  before_validation :normalize_name

@@ -1,5 +1,6 @@
 module BxBlockContentManagement
   class ContentManagement < ApplicationRecord
+    include RansackAllowlist
     self.table_name = :bx_block_content_management_content_managments
     has_many_attached :images
     has_one_attached :image
