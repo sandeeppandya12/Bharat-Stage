@@ -89,6 +89,12 @@ module AccountBlock
       end
     end
 
+    def self.ransackable_attributes(auth_object = nil)
+      ["activated", "age", "app_language_id", "blocked", "comet_chat_auth_token", "comet_chat_uid", "country_code", "created_at", "date_of_birth", "description", "device_id", "email", "experience_level", "first_name", "full_name", "full_phone_number", "gender", "height", "id", "is_blacklisted", "is_email_verify", "is_mobile_verified", "languages", "last_name", "last_visit_at", "location", "locations", "password_digest", "phone_number", "platform", "portfolio_links", "razorpay_customer_id", "reset_password_sent_at", "reset_password_token", "reset_token_expires_at", "role_id", "roles", "social_media_links", "status",
+     "suspend_until", "terms_accepted", "type", "unique_auth_id", "updated_at", "user_name", "user_role", "user_type", "verification_token", "weight"]
+    end
+
+
     private
 
     def valid_social_media_links
