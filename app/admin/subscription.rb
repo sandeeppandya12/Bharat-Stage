@@ -32,9 +32,9 @@ unless Subscription::Load.is_loaded_from_gem
     index title: 'Subscriptions' do
       id_column
       column :name
-      column :description
+      #column :description
       column("Price") { |subscription| subscription.price.to_i }
-      column :valid_up_to
+      #column :valid_up_to
       actions
     end
 
@@ -42,9 +42,9 @@ unless Subscription::Load.is_loaded_from_gem
       attributes_table do
         row :id
         row :name
-        row :description
+        #row :description
         row("Price") { |subscription| subscription.price.to_i }
-        row :valid_up_to
+        #row :valid_up_to
         row :image do |subscription|
           if subscription.image&.attached?
             image_tag url_for(subscription.image), width: 100
