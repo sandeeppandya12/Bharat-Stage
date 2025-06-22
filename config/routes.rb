@@ -105,6 +105,8 @@ Rails.application.routes.draw do
         patch :update_account_email
         post :verify_email_otp
         post :update_password
+        post :send_phone_update_code
+        patch :verify_and_update_phone_number
       end
     end
   end

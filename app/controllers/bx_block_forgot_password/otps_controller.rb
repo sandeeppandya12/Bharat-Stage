@@ -4,8 +4,13 @@ module BxBlockForgotPassword
     def send_verification_code
       full_phone_number = params[:full_phone_number]
     
-      # Prepend +91 if the phone number is 10 digits long
-      full_phone_number = "+91#{full_phone_number}" if full_phone_number.match?(/^\d{10}$/)
+      # Prepend 91 if the phone number is 10 digits long
+      full_phone_number = "91#{full_phone_number}" if full_phone_number.match?(/^\d{10}$/)
+
+      if AccountBlock::Account.where(full_phone_number: full_phone_number).exists?
+        return render json: { error: "This phone number is already associated with another account." }, status: :unprocessable_entity
+      end
+
       sms_otp = AccountBlock::SmsOtp.new(full_phone_number: full_phone_number)
     
       if sms_otp.save
@@ -24,7 +29,7 @@ module BxBlockForgotPassword
     def verify_otp
       phone_number = params[:phone_number]
     
-      # Prepend +91 if the phone number is 10 digits long
+      # Prepend 91 if the phone number is 10 digits long
       phone_number = "91#{phone_number}" if phone_number.match?(/^\d{10}$/)
     
       user_otp = params[:pin]
