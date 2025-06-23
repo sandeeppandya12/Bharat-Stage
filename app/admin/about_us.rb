@@ -1,5 +1,5 @@
 ActiveAdmin.register BxBlockTermsAndConditions::AboutUs, as: 'About Us' do
-  menu priority: 11
+  menu false
   permit_params :description
   actions :all, except: [:destroy]
   config.filters = false

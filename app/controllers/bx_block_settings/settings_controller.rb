@@ -3,7 +3,7 @@ module BxBlockSettings
     include BuilderJsonWebToken::JsonWebTokenValidation
     include CometchatUpdatable
     before_action :validate_json_web_token
-    before_action :set_account, only: [:toggle_two_factor, :update_notification, :update_account_profile, :update_account_email, :index, :update_password, :verify_email_otp]
+    before_action :set_account, only: [:toggle_two_factor, :update_notification, :update_account_profile, :update_account_email, :index, :update_password, :verify_email_otp, :verify_and_update_phone_number]
 
     def index
       settings = @account.setting
@@ -48,6 +48,7 @@ module BxBlockSettings
       end
 
       existing_account = AccountBlock::Account.find_by(email: params[:email])
+      
       if existing_account.present?
         return render json: { error: 'Email address is already associated with another account.' }, status: :unprocessable_entity
       end
@@ -103,6 +104,44 @@ module BxBlockSettings
           }],
         }, status: :unprocessable_entity
       end
+    end
+
+    def send_phone_update_code
+      full_phone_number = params[:full_phone_number]
+    
+      # Prepend 91 if the phone number is 10 digits long
+      full_phone_number = "91#{full_phone_number}" if full_phone_number.match?(/^\d{10}$/)
+
+      if AccountBlock::Account.where(full_phone_number: full_phone_number).exists?
+        return render json: { error: "This phone number is already associated with another account." }, status: :unprocessable_entity
+      end
+
+      sms_otp = AccountBlock::SmsOtp.new(full_phone_number: full_phone_number, activated: true)
+    
+      if sms_otp.save
+        verification_code = sms_otp.pin
+        message_body = "Your verification code for BharatStage is: #{verification_code}. Please enter this code to verify your phone number."
+    
+        BxBlockSms::TwilioService.send_sms(to: full_phone_number, body: message_body)
+    
+        render json: { message: "A verification code has been sent to your mobile number." }, status: :ok
+      else
+        render json: { errors: sms_otp.errors.full_messages }, status: :unprocessable_entity
+      end
+    end
+
+    def verify_and_update_phone_number
+      phone_record = AccountBlock::SmsOtp.find_by(pin: params[:otp].to_i, activated: true)
+      byebug
+
+      if phone_record.nil? || phone_record.valid_until < Time.current
+        return render json: { error: 'Invalid or expired OTP.' }, status: :unprocessable_entity
+      end
+        
+      @account.update!(full_phone_number: phone_record.full_phone_number)
+      phone_record.destroy!
+
+      render json: { message: 'Phone number successfully updated.' }, status: :ok
     end
 
     private
