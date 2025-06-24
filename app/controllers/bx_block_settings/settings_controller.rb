@@ -54,7 +54,7 @@ module BxBlockSettings
       end
 
       otp = AccountBlock::EmailOtp.create!(email: params[:email], activated: true)
-      # BxBlockForgotPassword::EmailOtpMailer.otp_email(otp, @account, host: request.base_url).deliver_now
+      BxBlockForgotPassword::EmailOtpMailer.otp_email(otp, @account, host: request.base_url).deliver_now
       render json: { message: 'OTP sent to the new email. Please verify to complete the update.', email: params[:email] }
     end
 
