@@ -54,7 +54,7 @@ module BxBlockSettings
       end
 
       otp = AccountBlock::EmailOtp.create!(email: params[:email], activated: true)
-      BxBlockForgotPassword::EmailOtpMailer.otp_email(otp, @account, host: request.base_url).deliver_now
+      # BxBlockForgotPassword::EmailOtpMailer.otp_email(otp, @account, host: request.base_url).deliver_now
       render json: { message: 'OTP sent to the new email. Please verify to complete the update.', email: params[:email] }
     end
 
@@ -124,7 +124,7 @@ module BxBlockSettings
     
         BxBlockSms::TwilioService.send_sms(to: full_phone_number, body: message_body)
     
-        render json: { message: "A verification code has been sent to your mobile number." }, status: :ok
+        render json: { message: "A verification code has been sent to your mobile number.", code: verification_code }, status: :ok
       else
         render json: { errors: sms_otp.errors.full_messages }, status: :unprocessable_entity
       end
@@ -132,7 +132,6 @@ module BxBlockSettings
 
     def verify_and_update_phone_number
       phone_record = AccountBlock::SmsOtp.find_by(pin: params[:otp].to_i, activated: true)
-      byebug
 
       if phone_record.nil? || phone_record.valid_until < Time.current
         return render json: { error: 'Invalid or expired OTP.' }, status: :unprocessable_entity

@@ -14,6 +14,7 @@ ActiveAdmin.register BxBlockTermsAndConditions::PrivacyPolicy, as: 'Privacy Poli
   end
 
   form do |f|
+    f.semantic_errors *f.object.errors.keys
     f.inputs "Privacy Policy Details" do
       f.input :description, as: :quill_editor
     end
