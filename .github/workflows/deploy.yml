@@ -38,7 +38,7 @@ jobs:
         IMAGE_URI=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}
         
         echo "Building Docker image..."
-        docker build -t $IMAGE_URI ./back-end
+        docker build -t $IMAGE_URI .
 
         echo "Pushing Docker image to ECR..."
         docker push $IMAGE_URI
