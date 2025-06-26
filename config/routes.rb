@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   namespace :account_block do
     resources :accounts do
       collection do
-        put :verify_account 
+        put :verify_account, via: [:put, :get]
         post :resend_verification_email
       end
     end
