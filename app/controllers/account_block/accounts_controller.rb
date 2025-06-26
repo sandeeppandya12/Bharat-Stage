@@ -45,7 +45,7 @@ module AccountBlock
           auth_token_response = BxBlockCometchatintegration::CometChatService.generate_auth_token(@account.id.to_s)
           if auth_token_response['data']['authToken'] && auth_token_response['data']['uid']
             @account.update_columns(comet_chat_auth_token: auth_token_response['data']['authToken'], comet_chat_uid: auth_token_response['data']['uid'])
-            render json: { message: "Thank you for signing up! An activation link has been sent to your email address #{@account.email}.", token: @account.verification_token }, status: :created
+            render json: { message: "Thank you for signing up! An activation link has been sent to your email address #{@account.email}."}, status: :created
           else
             render json: { error: "CometChat Auth Token generation failed." }, status: :unprocessable_entity
           end
@@ -80,10 +80,8 @@ module AccountBlock
     
     
     def verify_account
-      Rails.logger.info "🛠️ [VERIFY_ACCOUNT] Token received: #{params[:token]}"
+    
       account = AccountBlock::Account.find_by(verification_token: params[:token])
-      Rails.logger.info "🧩 [VERIFY_ACCOUNT] Account found: #{account.present?}"
-      # account = AccountBlock::Account.find_by(verification_token: params[:token])
 
       if account.nil?
         return render json: { error: "Invalid or expired token." }, status: :unprocessable_entity
