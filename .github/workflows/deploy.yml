@@ -5,7 +5,6 @@ on:
     branches: [ master ]  # Or your deploy branch
   workflow_dispatch:     # Allows manual trigger
 
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -37,11 +36,11 @@ jobs:
       run: |
         IMAGE_TAG=latest
         IMAGE_URI=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}
-        
-        echo "Building Docker image..."
+
+        echo "Building Docker image with private Gemfury token..."
         docker build \
-        --build-arg BUNDLE_GEMS__ENGINEERAI__IO=${GEMFURY_TOKEN} \
-        docker build -t $IMAGE_URI .
+          --build-arg BUNDLE_GEMS__ENGINEERAI__IO=${GEMFURY_TOKEN} \
+          -t $IMAGE_URI ./back-end
 
         echo "Pushing Docker image to ECR..."
         docker push $IMAGE_URI
