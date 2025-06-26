@@ -39,6 +39,7 @@ jobs:
         IMAGE_URI=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}
         
         echo "Building Docker image..."
+        docker build \
         --build-arg BUNDLE_GEMS__ENGINEERAI__IO=${GEMFURY_TOKEN} \
         docker build -t $IMAGE_URI .
 
