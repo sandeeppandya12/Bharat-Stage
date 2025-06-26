@@ -40,7 +40,7 @@ jobs:
         echo "Building Docker image with private Gemfury token..."
         docker build \
           --build-arg BUNDLE_GEMS__ENGINEERAI__IO=${GEMFURY_TOKEN} \
-          -t $IMAGE_URI ./back-end
+          -t $IMAGE_URI ..
 
         echo "Pushing Docker image to ECR..."
         docker push $IMAGE_URI
