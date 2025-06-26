@@ -33,6 +33,7 @@ jobs:
         AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
         ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
+         GEMFURY_TOKEN: ${{ secrets.GEMFURY_TOKEN }}
       run: |
         IMAGE_TAG=latest
         IMAGE_URI=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}

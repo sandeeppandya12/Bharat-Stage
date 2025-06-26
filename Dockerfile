@@ -34,6 +34,7 @@ EXPOSE 3000
 
 # ✅ Reconfigure bundler at runtime for safety
 ENV BUNDLE_GEMS__ENGINEERAI__IO="nvHuX-OXxLY2OpiQkFVfgnYgd4CszdA"
+ARG BUNDLE_GEMS__ENGINEERAI__IO
 RUN bundle config https://gem.fury.io/engineerai/ "$BUNDLE_GEMS__ENGINEERAI__IO"
 
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
