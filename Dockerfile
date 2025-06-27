@@ -7,9 +7,6 @@ ARG BUNDLE_GEMS__ENGINEERAI__IO
 ENV RAILS_ENV=$RAILS_ENV
 ENV APP_VERSION=${TAG}
 
-# ✅ Set correct ENV for Gemfury (engineerai)
-ENV BUNDLE_GEMS__ENGINEERAI__IO="nvHuX-OXxLY2OpiQkFVfgnYgd4CszdA"
-
 # Install system dependencies
 RUN apk update && apk add --no-cache \
   bash build-base libxml2-dev libxslt-dev postgresql postgresql-dev \
