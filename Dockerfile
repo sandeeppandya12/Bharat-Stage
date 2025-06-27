@@ -20,6 +20,7 @@ WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 
 # ✅ Install bundler and configure access to private Gemfury gems
+RUN echo "machine gem.fury.io\nlogin engineerai\npassword ${BUNDLE_GEMS__ENGINEERAI__IO}" > ~/.netrc
 RUN gem install bundler -v "${BUNDLER_VERSION}" && \
     bundle config https://gem.fury.io/engineerai/ "$BUNDLE_GEMS__ENGINEERAI__IO" && \
     bundle install --jobs 4 --retry 3
