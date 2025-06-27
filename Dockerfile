@@ -4,6 +4,7 @@ ARG RAILS_ENV=production
 ARG BUNDLER_VERSION=2.4.22
 
 ENV RAILS_ENV=$RAILS_ENV
+ARG TAG=latest
 ENV APP_VERSION=${TAG}
 
 # ✅ Set correct ENV for Gemfury (engineerai)
