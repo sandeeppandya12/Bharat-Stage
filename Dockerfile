@@ -19,21 +19,21 @@ WORKDIR /app
 # Copy Gemfile and lockfile for layer caching
 COPY Gemfile Gemfile.lock ./
 
-# ✅ Install bundler and configure access to private Gemfury gems
-RUN echo "machine gem.fury.io\nlogin engineerai\npassword ${BUNDLE_GEMS__ENGINEERAI__IO}" > ~/.netrc
-RUN gem install bundler -v "${BUNDLER_VERSION}" && \
-    bundle config https://gem.fury.io/engineerai/ "$BUNDLE_GEMS__ENGINEERAI__IO" && \
-    bundle install --jobs 4 --retry 3
+# ✅ Install bundler
+RUN gem install bundler -v "${BUNDLER_VERSION}"
 
-# Copy the rest of the app
+# ✅ Configure Gemfury via .netrc (more reliable than bundle config)
+RUN echo "machine gem.fury.io\nlogin engineerai\npassword ${BUNDLE_GEMS__ENGINEERAI__IO}" > ~/.netrc
+
+# ✅ Optional debug output
+RUN echo "Using Gemfury token: ${BUNDLE_GEMS__ENGINEERAI__IO:0:5}*****"
+
+# ✅ Install gems
+RUN bundle install --jobs 4 --retry 3
+
+# Copy rest of the application
 COPY . .
 
-# Expose Rails port
 EXPOSE 3000
-
-# ✅ Reconfigure bundler at runtime for safety
-ENV BUNDLE_GEMS__ENGINEERAI__IO="nvHuX-OXxLY2OpiQkFVfgnYgd4CszdA"
-
-RUN bundle config https://gem.fury.io/engineerai/ "$BUNDLE_GEMS__ENGINEERAI__IO"
 
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
